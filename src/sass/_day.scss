@@ -1,0 +1,35 @@
+.day {
+  width: 14.28%;
+  height: 100%;
+  display: inline-block;
+  vertical-align: top;
+  border-right: 1px solid lightgray;
+  text-align: center;
+  &:last-child {
+    border-right: none;
+  }
+}
+
+.day-head {
+  height: 50px;
+  line-height: 50px;
+  background-color: #F1F1F1;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 10px;
+}
+
+.btn.add-event-btn {
+  height: 35px;
+  width: 80%;
+  opacity: 0.3;
+  &:hover {
+    opacity: 0.6;
+  }
+  &:hover, &:focus, &:active {
+    outline: none;
+  }
+  i {
+    font-size: 30px;
+    line-height: 17px;
+  }
+}

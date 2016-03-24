@@ -1,0 +1,7 @@
+<div class="day">
+    <div class="day-head">
+        <span>{{dayCtrl.dayName}}</span>
+    </div>
+    <div style="height: {{55 * dayCtrl.eventsNum + 'px'}};"></div>
+    <button class="btn add-event-btn" ng-click="weekCtrl.addEvent(dayCtrl.eventsNum, dayCtrl.dayNum)"><i class="glyphicon glyphicon-plus"></i></button>
+</div>

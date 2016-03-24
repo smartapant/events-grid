@@ -1,0 +1,32 @@
+.event {
+  text-align: center;
+  line-height: 45px;
+  padding: 0 5px;
+  border-radius: 4px;
+  background-color: lightskyblue;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  .editable-buttons {
+    display: none;
+  }
+
+  .event-name {
+    border-bottom: none;
+    cursor: text;
+    color: #525252;
+    &:hover {
+      color: #525252;
+    }
+  }
+
+  .editable-wrap {
+    max-width: 80%;
+    line-height: 0;
+    .editable-controls, input {
+      max-width: 100%;
+    }
+  }
+}
+

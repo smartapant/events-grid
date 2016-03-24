@@ -1,0 +1,11 @@
+<div class="week" gridster="weekCtrl.gridsterOpts">
+
+  <div class="full-height">
+    <timely-day ng-repeat="day in weekCtrl.days" day-name="{{::day}}" day-num="{{::$index}}"></timely-day>
+  </div>
+
+  <div class="events-container">
+    <timely-event event-grid-item="event.grid" event-info="event.info" ng-repeat="event in weekCtrl.events" style="background-color: #000066"></timely-event>
+  </div>
+
+</div>
