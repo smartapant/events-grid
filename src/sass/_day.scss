@@ -8,6 +8,12 @@
   &:last-child {
     border-right: none;
   }
+  &:hover {
+    .btn.add-event-btn {
+      visibility: visible;
+      transition-delay: 0.2s;
+    }
+  }
 }
 
 .day-head {
@@ -19,9 +25,11 @@
 }
 
 .btn.add-event-btn {
+  visibility: hidden;
   height: 35px;
   width: 80%;
   opacity: 0.3;
+  transition: 0.1s visibility ease;
   &:hover {
     opacity: 0.6;
   }
