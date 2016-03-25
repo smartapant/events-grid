@@ -1,7 +1,7 @@
 export default {
   columns: 7,
   rowHeight: 55,
-  margins: [105, 20],
+  margins: [10, 20],
   defaultSizeX: 1,
   defaultSizeY: 1,
   minSizeX: 1,
