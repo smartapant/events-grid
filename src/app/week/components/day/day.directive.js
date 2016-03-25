@@ -19,17 +19,22 @@ export function timelyDay() {
 }
 
 class DayController {
-  constructor($scope) {
+  constructor($scope, gridsterOptions) {
     'ngInject';
 
     this._scope = $scope;
+    this._gridsterOprions = gridsterOptions;
     this.activate();
   }
 
   activate() {
-    this.eventsNum = 0;
-    this._scope.$on('events.perDay', (evt, data) => {
-      this.eventsNum = data.dayNum == this.dayNum ? data.eventsNum : this.eventsNum;
+    this.maxRow = -1;
+    this._scope.$on('events.rowsPerDay', (evt, data) => {
+      this.maxRow = data.dayNum == this.dayNum ? data.maxRow : this.maxRow;
     });
+  }
+
+  calcGutter() {
+    return `${this._gridsterOprions.rowHeight * (this.maxRow + 1)}px`;
   }
 }

@@ -10,7 +10,7 @@ export class WeekController {
   activate() {
     this.days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     this.events = [];
-    this._scope.$on('events.recalced', () => this.recalcEventsPerDay())
+    this._scope.$on('events.recalced', () => this.recalcRowsPerDay())
   }
 
   addEvent(row, col) {
@@ -20,10 +20,16 @@ export class WeekController {
     })
   }
 
-  recalcEventsPerDay() {
+  recalcRowsPerDay() {
+    //Not the most beautiful thing, little lazy
     this.days.forEach((dayName, dayNum) => {
-      let eventPerDay = this.events.filter((evt) => ( dayNum >= evt.info.startDay && dayNum <= evt.info.endDay)).length;
-      this._scope.$broadcast('events.perDay', {dayNum: dayNum, eventsNum: eventPerDay});
+      let maxRow = -1;
+      this.events.forEach((evt) => {
+        if (dayNum >= evt.info.startDay && dayNum <= evt.info.endDay) {
+          maxRow = evt.grid.position[0] >= maxRow ? evt.grid.position[0] : maxRow;
+        }
+      });
+      this._scope.$broadcast('events.rowsPerDay', {dayNum: dayNum, maxRow: maxRow});
     })
   }
 }
